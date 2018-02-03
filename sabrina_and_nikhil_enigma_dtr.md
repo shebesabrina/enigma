@@ -4,7 +4,14 @@
 
 **Project Expectations: What does each group member hope to get out of this project?**
 
-
+Deep understanding of the logic</br>
+Finish project with extensions</br>
+Very clean code</br>
+Very easy to read code with proper indentations</br>
+Using TDD for every method</br>
+Using SRP for every method</br>
+Feel comfortable with git and GitHub while working with partners (branches)  
+Have fun, learn and help each other</br>
 
 **Goals and expectations:**
 
