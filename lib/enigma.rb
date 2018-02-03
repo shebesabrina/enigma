@@ -8,10 +8,14 @@ class Enigma
   end
 
   def input_message(text)
-    result = text.split("")
+    encrypt_text = []
+    text.split("").each_slice(4) { |slice| encrypt_text << slice }
+    encrypt_text
   end
 
-
+  def generate_key
+    rand(10000..99999)
+  end
 
 
 end
