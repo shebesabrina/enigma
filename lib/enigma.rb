@@ -10,11 +10,6 @@ class Enigma
     @key = rand(10000..99999)
   end
 
-  def input_message(text)
-    encrypt_text = []
-    text.split("").each_slice(4) { |slice| encrypt_text << slice }
-    encrypt_text
-  end
 
   def generate_key_offset
     values = key.to_s.split("")
@@ -38,6 +33,17 @@ class Enigma
     result
   end
 
+  def input_message(text)
+    encrypt_text = []
+    text.split("").each_slice(4) { |slice| encrypt_text << slice }
+    encrypt_text
+  end
 
+  def encrypt(message)
+    quad_characters = input_message(message)
+    quad_characters.each do |character|
+      character
+    end
+  end
 
 end
