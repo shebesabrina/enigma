@@ -34,6 +34,15 @@ class EnigmaTest < Minitest::Test
     @e.input_message("the cat")
   end
 
+  def test_it_can_take_multiple_input_words
+    assert_equal [["t", "h", "e", " "], ["b", "i", "r", "d"],
+    ["s", " ", "c", "a"], ["n", " ", "t", "w"], ["e", "e", "t"]],
+    @e.input_message("the birds can tweet")
+  end
+
+  def test_it_can_generate_a_key
+    assert_equal 5, @e.generate_key.to_s.length
+  end
   # def test_it_brings_four_characters_at_a_time
   #
   #

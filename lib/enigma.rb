@@ -13,7 +13,9 @@ class Enigma
     encrypt_text
   end
 
-
+  def generate_key
+    rand(10000..99999)
+  end
 
 
 end
