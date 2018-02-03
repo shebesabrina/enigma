@@ -46,6 +46,7 @@ Sabrina and Nikhil work on separate local branches.</br>
 Regular commits to remote.</br>
 Create regular pull requests.</br>
 Use Hound to review code for the GitHub pull requests.</br>
+Use Simplecov to check test coverage.</br>
 Review merge requests as a team and any conflicting code.</br>
 Merge branches into master on a regular basis.</br>
 
