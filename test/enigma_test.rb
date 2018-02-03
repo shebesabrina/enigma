@@ -41,12 +41,32 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_a_key
-    assert_equal 5, @e.generate_key.to_s.length
+    assert @e.key.class == Integer
+    assert_equal 5, @e.key.to_s.length
+    refute_equal 4, @e.key.to_s.length
   end
-  # def test_it_brings_four_characters_at_a_time
-  #
-  #
-  # end
+
+  def test_it_can_generate_a_key_offset
+    e = Enigma.new
+    e.key
+
+    assert_equal 4, @e.generate_key_offset.length
+  end
+
+  def test_it_can_generate_a_date
+    assert @e.generate_date.class == Integer
+  end
+
+  def test_it_can_square_the_date_and_return_last_four_digits
+    assert @e.generate_date_offset.class == Array
+    assert_equal 4, @e.generate_date_offset.length
+  end
+
+  def test_it_can_add_key_offset_and_date_offset
+    assert @e.generate_rotation.class == Array
+    assert_equal 4, @e.generate_rotation.length
+  end
+
 
 
 
