@@ -18,7 +18,7 @@ class Enigma
 
   def generate_key_offset
     values = key.to_s.split("")
-    result = [values[0..1].join.to_i, values[1..2].join.to_i,
+    [values[0..1].join.to_i, values[1..2].join.to_i,
     values[2..3].join.to_i, values[3..4].join.to_i]
   end
 
