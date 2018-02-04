@@ -65,6 +65,15 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_letter
+    assert_equal ".2.l1c ..end.."
+    @e.encrypt("Sabrina")
+
+    assert_equal "69hq1a..end.."
+    @e.encrypt(nikhil)
+
+    assert_equal ",9bh9jfm3z.17lkhydujq.rw8h7yb6oh,9bh42w8q5lq.z.kv,8..end..",
+    @e.encrypt("Sabrina")
+
     assert_equal "3..end..", @e.encrypt("k")
   end
 
@@ -85,8 +94,14 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_many_words_with_comma_period_and_spaces
+    assert_equal ".2.l1c ..end.."
+    @e.encrypt("sabrina")
+
+    assert_equal "69hq1a..end.."
+    @e.encrypt("nikhil")
+
     assert_equal ",9bh9jfm3z.17lkhydujq.rw8h7yb6oh,9bh42w8q5lq.z.kv,8..end..",
-    @e.encrypt("the quick brown fox, jumps over the lazy dogs back.")
+    @e.encrypt("the big brown dog jumped over the lazy dog")
   end
 
 end
