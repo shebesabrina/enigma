@@ -4,7 +4,7 @@ require_relative "test_helper.rb"
 class EnigmaTest < Minitest::Test
 
   def setup
-    @e = Enigma.new
+    @e = Enigma.new(date = 30218, key = 12345)
   end
 
   def test_if_it_exists
@@ -65,10 +65,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_letter
-    @date = 30218
-    @key = 12345
-
-    assert_equal "17qd801g.bi", @e.encrypt("hello world")
+    assert_equal "06iv7zty aa..end..", @e.encrypt("hello world")
   end
 
 end
