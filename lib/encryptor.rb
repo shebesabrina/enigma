@@ -1,7 +1,7 @@
 require_relative 'rotator'
 require 'pry'
 
-class Encrypt
+class Encryptor
 
   attr_reader :dictionary,
               :message,
