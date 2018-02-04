@@ -68,7 +68,7 @@ class EnigmaTest < Minitest::Test
     @date = 30218
     @key = 12345
 
-    assert_equal "e", @e.encrypt("s")
+    assert_equal "17qd801g.bi", @e.encrypt("hello world")
   end
 
 end

@@ -32,19 +32,14 @@ class Enigma
 
   def input_message(text)
     encrypt_text = []
-    text.split("")
-    .each_slice(4) { |slice| encrypt_text << slice }
+    text.split("").each_slice(4) { |slice| encrypt_text << slice }
     encrypt_text
-
   end
 
   def encrypt(message)
-    quad_characters = input_message(message)
-    final_array = []
-    quad_characters.each do |characters|
-      final_array << encrypt_quad_characters(characters)
-    end
-    final_array.flatten.join("")
+    input_message(message).map do |characters|
+      encrypt_quad_characters(characters)
+    end.flatten.join("")
   end
 
   def encrypt_quad_characters(characters)
