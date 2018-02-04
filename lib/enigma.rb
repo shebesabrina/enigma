@@ -37,9 +37,7 @@ class Enigma
   end
 
   def input_message(text)
-    encrypt_text = []
-    text.split("").each_slice(4) { |slice| encrypt_text << slice }
-    encrypt_text
+    text.split("").each_slice(4).map { |slice| slice }
   end
 
   def encrypt_quad_characters(characters)
