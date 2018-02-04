@@ -11,6 +11,10 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @e
   end
 
+  def test_if_encrypt_method_returns_a_string
+    assert_equal String, @e.encrypt("hello world", "12345", 30218).class
+  end
+
   def test_it_can_encrypt_a_letter
     my_message = "k..end.."
 
