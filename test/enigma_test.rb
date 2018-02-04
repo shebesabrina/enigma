@@ -65,28 +65,29 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_a_letter
-    assert_equal "3..end..", @e.encrypt("k")
+    assert_equal "308o658i", @e.encrypt("k..end..")
   end
 
   def test_it_can_encrypt_a_second_letter
-    assert_equal "3 ..end..", @e.encrypt("ki")
+    assert_equal "3 8ixcair", @e.encrypt("ki..end..")
   end
 
   def test_it_can_encrypt_a_four_letter_word
-    assert_equal "u6iv..end..", @e.encrypt("bell")
+    assert_equal "u6ivr0bxw08", @e.encrypt("bell..end..")
   end
 
   def test_it_can_encrypt_two_words
-    assert_equal "u6ivq9lz..end..", @e.encrypt("bell hop")
+    assert_equal "u6ivq9lzr0bxw08", @e.encrypt("bell hop..end..")
   end
 
   def test_it_can_encrypt_words_with_a_comma
-    assert_equal ",9bhtcp6xg7s.17a..end..", @e.encrypt("the answer is, 3")
+    assert_equal ",9bhtcp6xg7s.17ar0bxw08",
+    @e.encrypt("the answer is, 3..end..")
   end
 
   def test_it_can_encrypt_many_words_with_comma_period_and_spaces
-    assert_equal ",9bh9jfm3z.17lkhydujq.rw8h7yb6oh,9bh42w8q5lq.z.kv,8..end..",
-    @e.encrypt("the quick brown fox, jumps over the lazy dogs back.")
+    assert_equal ",9bh9jfm3z.17lkhydujq.rw8h7yb6oh,9bh42w8q5lq.z.kv,8ir6knr0",
+    @e.encrypt("the quick brown fox, jumps over the lazy dogs back...end..")
   end
 
 end
