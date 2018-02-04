@@ -3,34 +3,13 @@ require 'pry'
 
 class Enigma
 
-  attr_reader :dictionary,
-              :key,
-              :date
+  attr_reader :dictionary
 
-  def initialize(date = DateTime.now.strftime("%d%m%y").to_i,
-                 key = rand(10000..99999))
+  def initialize
     @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
-    @key = key
-    @date = date
   end
 
-  def generate_key_offset
-    values = key.to_s.split("")
-    [values[0..1].join.to_i, values[1..2].join.to_i,
-    values[2..3].join.to_i, values[3..4].join.to_i]
-  end
-
-  def generate_date_offset
-    (date ** 2).digits[0..3].reverse
-  end
-
-  def generate_rotation
-    generate_key_offset.each_with_index.map do |num, index|
-      num + generate_date_offset[index]
-    end
-  end
-
-  def encrypt(message)
+  def encrypt(message, key, date)
     input_message(message).map do |characters|
       encrypt_quad_characters(characters)
     end.flatten.join("")
