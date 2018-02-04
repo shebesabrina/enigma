@@ -3,8 +3,8 @@ require 'pry'
 
 class Enigma
 
-  def encrypt(message, key, date)
-      Encryptor.new(message, key = key, date = date).encrypted_message
+  def encrypt(message, key = "12345", date = Date.today)
+      Encryptor.new(message, key, date).encrypted_message
   end
 
 end

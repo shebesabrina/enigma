@@ -14,7 +14,7 @@ class Encryptor
     @message = message
     @key = key
     @date = date
-    @rotation = Rotator.new.generate_rotation
+    @rotation = Rotator.new(date = date, key = key).generate_rotation
   end
 
   def encrypted_message
