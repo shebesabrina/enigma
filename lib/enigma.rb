@@ -33,7 +33,7 @@ class Enigma
   def encrypt(message)
     input_message(message).map do |characters|
       encrypt_quad_characters(characters)
-    end.flatten.join("").concat("..end..")
+    end.flatten.join("")
   end
 
   def input_message(text)
