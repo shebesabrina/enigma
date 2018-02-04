@@ -8,7 +8,7 @@ class Enigma
               :date
 
   def initialize(date = DateTime.now.strftime("%d%m%y").to_i,
-                key = rand(10000..99999))
+                 key = rand(10000..99999))
     @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
     @key = key
     @date = date
