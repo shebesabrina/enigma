@@ -5,15 +5,11 @@ class Encryptor
 
   attr_reader :dictionary,
               :message,
-              :key,
-              :date,
               :rotation
 
   def initialize(message, key, date)
     @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
     @message = message
-    @key = key
-    @date = date
     @rotation = Rotator.new(date = date, key = key).generate_rotation
   end
 
