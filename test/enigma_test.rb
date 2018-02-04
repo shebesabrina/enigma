@@ -18,30 +18,26 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_take_one_input_letter
-    assert_equal [["h", ".", ".", "e"], ["n", "d", ".", "."]],
-    @e.input_message("h..end..")
+    assert_equal [["h"]], @e.input_message("h")
   end
 
   def test_it_can_take_two_input_letter
-    assert_equal [["h", "e", ".", "."], ["e", "n", "d", "."], ["."]],
-    @e.input_message("he..end..")
+    assert_equal [["h", "e"]], @e.input_message("he")
   end
 
   def test_it_can_take_one_input_word
-    assert_equal [["h", "e", "l", "l"], ["o", ".", ".", "e"],
-    ["n", "d", ".", "."]], @e.input_message("hello..end..")
+    assert_equal [["h", "e", "l", "l"], ["o"]], @e.input_message("hello")
   end
 
   def test_it_can_take_two_input_words_with_a_space
-    assert_equal [["t", "h", "e", " "], ["c", "a", "t", "."],
-    [".", "e", "n", "d"], [".", "."]], @e.input_message("the cat..end..")
+    assert_equal [["t", "h", "e", " "], ["c", "a", "t"]],
+    @e.input_message("the cat")
   end
 
   def test_it_can_take_multiple_input_words
     assert_equal [["t", "h", "e", " "], ["b", "i", "r", "d"],
-    ["s", " ", "c", "a"], ["n", " ", "t", "w"], ["e", "e", "t", "."],
-    [".", "e", "n", "d"], [".", "."]],
-    @e.input_message("the birds can tweet..end..")
+    ["s", " ", "c", "a"], ["n", " ", "t", "w"], ["e", "e", "t"]],
+    @e.input_message("the birds can tweet")
   end
 
   def test_it_can_generate_a_key
@@ -85,7 +81,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_words_with_a_comma
-    assert_equal ",9bhtcp6xg7s.17ar0bxw08", @e.encrypt("the answer is, 3..end..")
+    assert_equal ",9bhtcp6xg7s.17ar0bxw08",
+    @e.encrypt("the answer is, 3..end..")
   end
 
   def test_it_can_encrypt_many_words_with_comma_period_and_spaces
