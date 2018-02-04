@@ -30,16 +30,16 @@ class Enigma
     end
   end
 
-  def input_message(text)
-    encrypt_text = []
-    text.split("").each_slice(4) { |slice| encrypt_text << slice }
-    encrypt_text
-  end
-
   def encrypt(message)
     input_message(message).map do |characters|
       encrypt_quad_characters(characters)
     end.flatten.join("").concat("..end..")
+  end
+
+  def input_message(text)
+    encrypt_text = []
+    text.split("").each_slice(4) { |slice| encrypt_text << slice }
+    encrypt_text
   end
 
   def encrypt_quad_characters(characters)
