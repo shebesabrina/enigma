@@ -3,13 +3,14 @@ require 'pry'
 class Enigma
 
   attr_reader :dictionary,
-              :key
+              :key,
+              :date
 
   def initialize
     @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
     @key = rand(10000..99999)
+    @date = DateTime.now.strftime("%d%m%y").to_i
   end
-
 
   def generate_key_offset
     values = key.to_s.split("")
@@ -17,12 +18,8 @@ class Enigma
     values[2..3].join.to_i, values[3..4].join.to_i]
   end
 
-  def generate_date
-    DateTime.now.strftime("%d%m%y").to_i
-  end
-
   def generate_date_offset
-    (generate_date ** 2).digits[0..3].reverse
+    (date ** 2).digits[0..3].reverse
   end
 
   def generate_rotation
@@ -35,14 +32,25 @@ class Enigma
 
   def input_message(text)
     encrypt_text = []
-    text.split("").each_slice(4) { |slice| encrypt_text << slice }
+    text.split("")
+    .each_slice(4) { |slice| encrypt_text << slice }
     encrypt_text
+
   end
 
   def encrypt(message)
     quad_characters = input_message(message)
-    quad_characters.each do |character|
-      character
+    final_array = []
+    quad_characters.each do |characters|
+      final_array << encrypt_quad_characters(characters)
+    end
+    final_array.flatten.join("")
+  end
+
+  def encrypt_quad_characters(characters)
+    characters.each_with_index.map do |character, index|
+      actual_index = dictionary.find_index(character)
+      encrypted_letter = dictionary[actual_index + generate_rotation[index]]
     end
   end
 

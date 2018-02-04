@@ -47,14 +47,11 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_a_key_offset
-    e = Enigma.new
-    e.key
-
     assert_equal 4, @e.generate_key_offset.length
   end
 
   def test_it_can_generate_a_date
-    assert @e.generate_date.class == Integer
+    assert @e.date.class == Integer
   end
 
   def test_it_can_square_the_date_and_return_last_four_digits
@@ -67,7 +64,11 @@ class EnigmaTest < Minitest::Test
     assert_equal 4, @e.generate_rotation.length
   end
 
+  def test_it_can_encrypt_a_letter
+    @date = 30218
+    @key = 12345
 
-
+    assert_equal "e", @e.encrypt("s")
+  end
 
 end
