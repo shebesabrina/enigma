@@ -1,3 +1,5 @@
+require 'pry'
+
 class Rotator
 
   attr_reader :key,
