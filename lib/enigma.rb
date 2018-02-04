@@ -23,11 +23,9 @@ class Enigma
   end
 
   def generate_rotation
-    result = []
-    generate_key_offset.each_with_index do |num, index|
-      result << (num + generate_date_offset[index])
+    generate_key_offset.each_with_index.map do |num, index|
+      num + generate_date_offset[index]
     end
-    result
   end
 
   def input_message(text)
@@ -45,7 +43,7 @@ class Enigma
   def encrypt_quad_characters(characters)
     characters.each_with_index.map do |character, index|
       actual_index = dictionary.find_index(character)
-      encrypted_letter = dictionary[actual_index + generate_rotation[index]]
+      dictionary[actual_index + generate_rotation[index]]
     end
   end
 
