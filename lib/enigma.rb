@@ -1,5 +1,4 @@
-require_relative 'encryptor'
-require 'pry'
+require 'encryptor'
 
 class Enigma
 

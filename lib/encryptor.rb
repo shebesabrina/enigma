@@ -1,5 +1,4 @@
-require_relative 'rotator'
-require 'pry'
+require 'rotator'
 
 class Encryptor
 
