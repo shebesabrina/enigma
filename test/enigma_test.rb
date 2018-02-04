@@ -1,6 +1,4 @@
 require './lib/enigma'
-require './lib/rotator'
-require './lib/encryptor'
 require_relative "test_helper.rb"
 
 class EnigmaTest < Minitest::Test
