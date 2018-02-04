@@ -1,4 +1,4 @@
-require 'rotator'
+require './lib/rotator'
 
 class Encryptor
 

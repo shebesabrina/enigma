@@ -1,4 +1,4 @@
-require 'encryptor'
+require './lib/encryptor'
 
 class Enigma
 
