@@ -1,6 +1,4 @@
-require 'pry'
 require './lib/encryptor'
-require './lib/rotator'
 
 class Enigma
 

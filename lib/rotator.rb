@@ -1,4 +1,4 @@
-require 'pry'
+require 'Date'
 
 class Rotator
 
