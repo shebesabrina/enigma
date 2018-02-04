@@ -1,5 +1,6 @@
 require 'date'
 require 'pry'
+
 class Enigma
 
   attr_reader :dictionary,
