@@ -6,16 +6,18 @@ class Encryptor
   attr_reader :dictionary,
               :message,
               :key,
-              :date
+              :date,
+              :rotation
 
   def initialize(message, key, date)
     @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
     @message = message
-    @key = Rotator.new(date, key).key
-    @date = Rotator.new(date, key).date
+    @key = key
+    @date = date
+    @rotation = Rotator.new.generate_rotation
   end
 
-  def encrypted_message(message, key, date)
+  def encrypted_message
     input_message(message).map do |characters|
       encrypt_quad_characters(characters)
     end.flatten.join("")
@@ -28,7 +30,7 @@ class Encryptor
   def encrypt_quad_characters(characters)
     characters.each_with_index.map do |character, index|
       actual_index = dictionary.find_index(character)
-      dictionary[actual_index + Rotator.new.generate_rotation[index]]
+      dictionary[actual_index + rotation[index]]
     end
   end
 
