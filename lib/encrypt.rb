@@ -1,6 +1,4 @@
 require './lib/enigma'
-require './lib/encryptor'
-require './lib/rotator'
 require 'date'
 require 'pry'
 
