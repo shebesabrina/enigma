@@ -68,6 +68,13 @@ class EnigmaTest < Minitest::Test
   end
 
 
+  def test_it_can_encrypt_one_letter
+    skip
+    text = @e.input_message("s")
+    @key = 12345
+    @e.generate_rotation
 
+    assert_equal "b", @e.encrypt("s")
+  end
 
 end
