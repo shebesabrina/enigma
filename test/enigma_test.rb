@@ -4,7 +4,7 @@ require_relative "test_helper.rb"
 class EnigmaTest < Minitest::Test
 
   def setup
-    @e = Enigma.new
+    @e = Enigma.new(date = 30218, key = 12345)
   end
 
   def test_if_it_exists
@@ -47,14 +47,11 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_a_key_offset
-    e = Enigma.new
-    e.key
-
     assert_equal 4, @e.generate_key_offset.length
   end
 
   def test_it_can_generate_a_date
-    assert @e.generate_date.class == Integer
+    assert @e.date.class == Integer
   end
 
   def test_it_can_square_the_date_and_return_last_four_digits
@@ -67,7 +64,29 @@ class EnigmaTest < Minitest::Test
     assert_equal 4, @e.generate_rotation.length
   end
 
+  def test_it_can_encrypt_a_letter
+    assert_equal "3..end..", @e.encrypt("k")
+  end
 
+  def test_it_can_encrypt_a_second_letter
+    assert_equal "3 ..end..", @e.encrypt("ki")
+  end
 
+  def test_it_can_encrypt_a_four_letter_word
+    assert_equal "u6iv..end..", @e.encrypt("bell")
+  end
+
+  def test_it_can_encrypt_two_words
+    assert_equal "u6ivq9lz..end..", @e.encrypt("bell hop")
+  end
+
+  def test_it_can_encrypt_words_with_a_comma
+    assert_equal ",9bhtcp6xg7s.17a..end..", @e.encrypt("the answer is, 3")
+  end
+
+  def test_it_can_encrypt_many_words_with_comma_period_and_spaces
+    assert_equal ",9bh9jfm3z.17lkhydujq.rw8h7yb6oh,9bh42w8q5lq.z.kv,8..end..",
+    @e.encrypt("the quick brown fox, jumps over the lazy dogs back.")
+  end
 
 end
