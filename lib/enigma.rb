@@ -1,4 +1,5 @@
 require './lib/encryptor'
+require 'Date'
 
 class Enigma
 
@@ -6,8 +7,9 @@ class Enigma
               :stored_date,
               :rotation
 
-  def encrypt(message)
-    result = Encryptor.new(message)
+  def encrypt(message, date = DateTime.now.strftime("%d%m%y").to_i,
+              key = rand(10000..99999).to_s)
+    result = Encryptor.new(message, date, key)
     @stored_key = result.stored_key
     @stored_date = result.stored_date
     @rotation = result.rotation
