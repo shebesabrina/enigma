@@ -1,7 +1,18 @@
 require './lib/encryptor'
+<<<<<<< HEAD
 require './lib/decryptor'
 require 'Date'
 require 'pry'
+=======
+<<<<<<< HEAD
+require './lib/rotator'
+require 'date'
+=======
+require './lib/decryptor'
+require 'Date'
+require 'pry'
+>>>>>>> d3561cbb304f78d8f9134817f0b9d3778d822388
+>>>>>>> master
 
 class Enigma
 
@@ -17,11 +28,20 @@ class Enigma
     @stored_date = result.stored_date
     @rotation = result.rotation
     @output = result.encrypted_message
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> master
   end
 
   def decrypt(message = output, date = input_date, key = input_key)
     result = Decryptor.new(message, date, key)
     result.decrypted_message
+<<<<<<< HEAD
+=======
+>>>>>>> d3561cbb304f78d8f9134817f0b9d3778d822388
+>>>>>>> master
   end
 
 end

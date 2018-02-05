@@ -9,10 +9,20 @@ class Encryptor
               :stored_date
 
   def initialize(message, date, key)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
+=======
+>>>>>>> master
     @dictionary = [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
                   ("!"),("@"),("#"),("$"),("%"),("^"),("&"),("*"),("("),
                   (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
                   ("|"), ('\\')] * 3
+<<<<<<< HEAD
+=======
+>>>>>>> d3561cbb304f78d8f9134817f0b9d3778d822388
+>>>>>>> master
     @message = message
     @rotator = Rotator.new(date, key)
     @rotation = @rotator.generate_rotation

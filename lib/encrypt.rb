@@ -11,5 +11,13 @@ writer.write(e.encrypt(incoming_text))
 writer.close
 
 rotation =  e.rotation
+<<<<<<< HEAD
 puts "Created 'encrypted.txt' with the key #{e.stored_key} and date \
+=======
+<<<<<<< HEAD
+puts "Created 'encypted.txt' with the key #{e.stored_key} and date
+=======
+puts "Created 'encrypted.txt' with the key #{e.stored_key} and date \
+>>>>>>> d3561cbb304f78d8f9134817f0b9d3778d822388
+>>>>>>> master
 #{e.stored_date}."
