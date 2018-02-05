@@ -1,43 +1,41 @@
 require './lib/rotator'
+require 'pry'
 
-class Encryptor
+class Decryptor
 
-  attr_reader :dictionary,
+  attr_reader :dictionary_decrypt,
               :message,
               :rotation,
               :stored_key,
               :stored_date
 
-  def initialize(message, date, key)
-<<<<<<< HEAD
-    @dictionary = [*('a'..'z'),*('0'..'9'),(" "),("."),(",")] * 4
-=======
-    @dictionary = [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
+  def initialize(message, key, date)
+    dictionary = [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
                   ("!"),("@"),("#"),("$"),("%"),("^"),("&"),("*"),("("),
                   (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
                   ("|"), ('\\')] * 3
->>>>>>> d3561cbb304f78d8f9134817f0b9d3778d822388
+    @dictionary_decrypt = dictionary.reverse
     @message = message
-    @rotator = Rotator.new(date, key)
+    @rotator = Rotator.new(date = date, key = key)
     @rotation = @rotator.generate_rotation
     @stored_key = @rotator.key
     @stored_date = @rotator.date
   end
 
-  def encrypted_message
+  def decrypted_message
     input_message(message).map do |characters|
-      encrypt_quad_characters(characters)
+      decrypt_quad_characters(characters)
     end.flatten.join("")
   end
 
   def input_message(message)
-    message.split("").each_slice(4).map { |slice| slice }
+    result = message.split("").each_slice(4).map { |slice| slice }
   end
 
-  def encrypt_quad_characters(characters)
+  def decrypt_quad_characters(characters)
     characters.each_with_index.map do |character, index|
-      actual_index = dictionary.find_index(character)
-      dictionary[actual_index + rotation[index]]
+      actual_index = dictionary_decrypt.find_index(character)
+      dictionary_decrypt[actual_index + rotation[index]]
     end
   end
 
