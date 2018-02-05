@@ -1,5 +1,5 @@
 require './lib/enigma'
-require_relative "test_helper.rb"
+require_relative "test_helper"
 
 class EnigmaTest < Minitest::Test
 
@@ -18,38 +18,38 @@ class EnigmaTest < Minitest::Test
   def test_it_can_encrypt_a_letter
     my_message = "k..end.."
 
-    assert_equal "Dhp1GFpC", @e.encrypt(my_message, 30218, "12345")
+    assert_equal "Dgo1GFoB", @e.encrypt(my_message, 30218, "12345")
   end
 
   def test_it_can_encrypt_a_second_letter
     my_message = "ki..end.."
 
-    assert_equal "DKpCxPNC?", @e.encrypt(my_message, 30218, "12345")
+    assert_equal "DKoBxPNB?", @e.encrypt(my_message, 30218, "12345")
   end
 
   def test_it_can_encrypt_a_four_letter_word
     my_message = "bell..end.."
 
-    assert_equal "uGV8?hO whp", @e.encrypt(my_message, 30218, "12345")
+    assert_equal "uGV8?gO wgo", @e.encrypt(my_message, 30218, "12345")
   end
 
   def test_it_can_encrypt_two_words
     my_message = "bell hop..end.."
 
-    assert_equal "uGV8/JY,?hO whp", @e.encrypt(my_message, 30218, "12345")
+    assert_equal "uGV8/JY,?gO wgo", @e.encrypt(my_message, 30218, "12345")
   end
 
   def test_it_can_encrypt_words_with_a_comma
     my_message = "the answer is, 3..end.."
 
-    assert_equal "MJOBtP2&xTo5Liou?hO whp",
+    assert_equal "MJOAtP2&xTn5Lhnt?gO wgo",
     @e.encrypt(my_message, 30218, "12345")
   end
 
   def test_it_can_encrypt_many_words_with_comma_period_and_spaces
      my_message = "the quick brown fox, jumps over the lazy dogs back...end.."
 
-    assert_equal "MJOBJWSZDgL@HYXByQ7D/L49IUo.OG1BMJOBEC9(/FY3LgLXvMpC?GX0?h",
+    assert_equal "MJOAJWSZDfL@HYXAyQ7C/L49IUn.OG1AMJOAEC9(/FY3LfLXvMoB?GX0?g",
     @e.encrypt(my_message, 30218, "12345")
   end
 
@@ -60,38 +60,38 @@ class EnigmaTest < Minitest::Test
   def test_it_can_decrypt_a_letter
     my_message = "k..end.."
 
-    assert_equal "39O!6bOO", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "49O@7bOO", @e.decrypt(my_message, "30218", "12345")
   end
 
   def test_it_can_decrypt_a_second_letter
     my_message = "ki..end.."
 
-    assert_equal "3gOOXl,Oy", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "4gOOYl!Oy", @e.decrypt(my_message, "30218", "12345")
   end
 
   def test_it_can_decrypt_a_four_letter_word
     my_message = "bell..end.."
 
-    assert_equal "Uc**y9!)W9O", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "Vc((y9@[X9O", @e.decrypt(my_message, "30218", "12345")
   end
 
   def test_it_can_decrypt_two_words
     my_message = "bell hop..end.."
 
-    assert_equal "Uc**xf[]y9!)W9O", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "Vc((xf]<y9@[X9O", @e.decrypt(my_message, "30218", "12345")
   end
 
   def test_it_can_decrypt_words_with_a_comma
     my_message = "the answer is, 3..end.."
 
-    assert_equal ",f!NTl;|XpN%. NGy9!)W9O",
+    assert_equal "!f@NUl:\\YpN^, NGy9@[X9O",
     @e.decrypt(my_message, "30218", "12345")
   end
 
   def test_it_can_decrypt_many_words_with_comma_period_and_spaces
      my_message = "the quick brown fox, jumps over the lazy dogs back...end.."
 
-    assert_equal ",f!N9s%.38 >7u)NYmaPxh/(8qN[@c>N,f!N4?cbxb[#.8 9ViOOyc),y9",
+    assert_equal "!f@N s^,48.;8u[NZmaPxh?)9qN]#c;N!f@N5|cbxb]$,8. WiOOyc[!y9",
     @e.decrypt(my_message, "30218", "12345")
   end
 

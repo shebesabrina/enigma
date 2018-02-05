@@ -1,5 +1,5 @@
 require './lib/encryptor'
-require_relative "test_helper.rb"
+require_relative "test_helper"
 
 class EncryptorTest < Minitest::Test
 
@@ -12,9 +12,9 @@ class EncryptorTest < Minitest::Test
   def test_if_it_has_a_dictionary
     encryptor = Encryptor.new("testing", 30218, "12345")
 
-    assert_equal "|", encryptor.dictionary.last
+    assert_equal "\\", encryptor.dictionary.last
     assert_equal "a", encryptor.dictionary.first
-    assert_equal 252, encryptor.dictionary.count
+    assert_equal 255, encryptor.dictionary.count
   end
 
   def test_it_can_take_one_input_letter

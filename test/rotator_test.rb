@@ -1,5 +1,5 @@
 require './lib/rotator'
-require_relative "test_helper.rb"
+require_relative "test_helper"
 
 class RotatorTest < Minitest::Test
 

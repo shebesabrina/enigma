@@ -1,5 +1,5 @@
 require './lib/decryptor'
-require_relative "test_helper.rb"
+require_relative "test_helper"
 
 class DecryptorTest < Minitest::Test
 
@@ -12,9 +12,9 @@ class DecryptorTest < Minitest::Test
   def test_if_it_has_a_dictionary
     decryptor = Decryptor.new("testing", "30218", "12345")
 
-    assert_equal "|", decryptor.dict_decrypt.first
-    assert_equal "a", decryptor.dict_decrypt.last
-    assert_equal 252, decryptor.dict_decrypt.count
+    assert_equal "\\", decryptor.dictionary_decrypt.first
+    assert_equal "a", decryptor.dictionary_decrypt.last
+    assert_equal 255, decryptor.dictionary_decrypt.count
   end
 
   def test_it_can_take_one_input_letter

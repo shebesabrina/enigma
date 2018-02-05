@@ -3,7 +3,7 @@ require 'pry'
 
 class Decryptor
 
-  attr_reader :dict_decrypt,
+  attr_reader :dictionary_decrypt,
               :message,
               :rotation,
               :stored_key,
@@ -14,7 +14,7 @@ class Decryptor
                   ("!"),("@"),("#"),("$"),("%"),("^"),("&"),("*"),("("),
                   (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
                   ("|"), ('\\')] * 3
-    @dict_decrypt = dictionary.reverse
+    @dictionary_decrypt = dictionary.reverse
     @message = message
     @rotator = Rotator.new(date = date, key = key)
     @rotation = @rotator.generate_rotation
@@ -24,7 +24,7 @@ class Decryptor
 
   def decrypted_message
     input_message(message).map do |characters|
-      encrypt_quad_characters(characters)
+      decrypt_quad_characters(characters)
     end.flatten.join("")
   end
 
@@ -32,10 +32,10 @@ class Decryptor
     result = message.split("").each_slice(4).map { |slice| slice }
   end
 
-  def encrypt_quad_characters(characters)
+  def decrypt_quad_characters(characters)
     characters.each_with_index.map do |character, index|
-      actual_index = dict_decrypt.find_index(character)
-      dict_decrypt[actual_index + rotation[index]]
+      actual_index = dictionary_decrypt.find_index(character)
+      dictionary_decrypt[actual_index + rotation[index]]
     end
   end
 
