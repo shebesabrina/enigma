@@ -1,12 +1,9 @@
-require 'pry'
-
 class Rotator
 
   attr_reader :key,
               :date
 
-  def initialize(date = DateTime.now.strftime("%d%m%y").to_i,
-                 key = rand(10000..99999).to_s)
+  def initialize(date, key)
     @key = key
     @date = date
   end
