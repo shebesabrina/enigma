@@ -1,7 +1,11 @@
-require 'pry'
 require './lib/encryptor'
 require './lib/decryptor'
+<<<<<<< HEAD
 require 'date'
+=======
+require 'Date'
+require 'pry'
+>>>>>>> d3561cbb304f78d8f9134817f0b9d3778d822388
 
 class Enigma
 

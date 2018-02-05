@@ -1,4 +1,5 @@
 require './lib/rotator'
+require 'pry'
 
 class Decryptor
 
@@ -9,10 +10,10 @@ class Decryptor
               :stored_date
 
   def initialize(message, key, date)
-    dictionary =  [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
-                  ('!'), ('@'), ('#'), ('$'), ('%'), ('^'), ('&'), ('*'), ('('),
-                  (')'), ('['), (']'), ('<'), ('>'), (';'), (':'), ('/'), ('?'),
-                  ('\\'), ('|')] * 4
+    dictionary = [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
+                  ("!"),("@"),("#"),("$"),("%"),("^"),("&"),("*"),("("),
+                  (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
+                  ("|"), ('\\')] * 3
     @dictionary_decrypt = dictionary.reverse
     @message = message
     @rotator = Rotator.new(date = date, key = key)
@@ -28,7 +29,7 @@ class Decryptor
   end
 
   def input_message(message)
-    message.split("").each_slice(4).map { |slice| slice }
+    result = message.split("").each_slice(4).map { |slice| slice }
   end
 
   def decrypt_quad_characters(characters)
