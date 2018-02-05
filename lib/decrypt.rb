@@ -7,10 +7,11 @@ handle.close
 e = Enigma.new
 
 writer = File.open(ARGV[1], "w")
-writer.write(e.encrypt(incoming_text))
+input_key = ARGV[2]
+input_date = ARGV[3]
+writer.write(e.decrypt(incoming_text, input_key, input_date))
 writer.close
 
 rotation =  e.rotation
-puts "Rotation is #{rotation}."
-puts "Created 'encrypted.txt' with the key #{e.stored_key} and date \
-#{e.stored_date}."
+puts "Created 'decrypted.txt' with the key #{input_key} and date \
+#{input_date}."
