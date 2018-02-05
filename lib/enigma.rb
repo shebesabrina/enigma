@@ -1,6 +1,6 @@
 require 'pry'
 require './lib/encryptor'
-require './lib/rotator'
+require './lib/decryptor'
 require 'date'
 
 class Enigma
@@ -17,6 +17,11 @@ class Enigma
     @stored_date = result.stored_date
     @rotation = result.rotation
     @output = result.encrypted_message
+  end
+
+  def decrypt(message = output, date = input_date, key = input_key)
+    result = Decryptor.new(message, date, key)
+    result.decrypted_message
   end
 
 end

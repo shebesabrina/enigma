@@ -5,7 +5,7 @@ class Rotator
 
   def initialize(date, key)
     @key = key
-    @date = date
+    @date = date.to_i
   end
 
   def generate_key_offset
