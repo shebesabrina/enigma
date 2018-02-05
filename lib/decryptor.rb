@@ -13,7 +13,7 @@ class Decryptor
     dictionary = [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
                   ("!"),("@"),("#"),("$"),("%"),("^"),("&"),("*"),("("),
                   (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
-                  ("|")] * 3
+                  ("|"), ('\\')] * 3
     @dict_decrypt = dictionary.reverse
     @message = message
     @rotator = Rotator.new(date = date, key = key)

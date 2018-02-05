@@ -12,7 +12,7 @@ class Encryptor
     @dictionary = [*('a'..'z'), *('A'..'Z'), *('0'..'9'),(" "),("."),(","),
                   ("!"),("@"),("#"),("$"),("%"),("^"),("&"),("*"),("("),
                   (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
-                  ("|")] * 3
+                  ("|"), ('\\')] * 3
     @message = message
     @rotator = Rotator.new(date, key)
     @rotation = @rotator.generate_rotation
