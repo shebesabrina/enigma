@@ -1,5 +1,5 @@
 require './lib/decryptor'
-require './lib/rotator'
+require './lib/encryptor'
 require 'date'
 require 'pry'
 
