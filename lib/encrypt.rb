@@ -1,7 +1,7 @@
 require './lib/enigma'
 
 handle = File.open(ARGV[0], "r")
-incoming_text = handle.read.gsub("\n", "").chomp(" ")
+incoming_text = handle.read.gsub("\n", "").strip
 handle.close
 
 e = Enigma.new
