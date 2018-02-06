@@ -51,7 +51,7 @@ class EnigmaTest < Minitest::Test
     my_message = "the answer is, 3..end.."
 
     assert_equal ",9bhtcp6xg7s.17ar0bxw08",
-    assert_equal "MJOAtP2&xTn5Lhnt?gO wgo",
+    # assert_equal "MJOAtP2&xTn5Lhnt?gO wgo",
 
     @e.encrypt(my_message, 30218, "12345")
   end
