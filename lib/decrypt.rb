@@ -12,6 +12,5 @@ input_date = ARGV[3]
 writer.write(e.decrypt(incoming_text, input_key, input_date))
 writer.close
 
-rotation =  e.rotation
 puts "Created 'decrypted.txt' with the key #{input_key} and date \
 #{input_date}."

@@ -10,6 +10,5 @@ writer = File.open(ARGV[1], "w")
 writer.write(e.encrypt(incoming_text))
 writer.close
 
-rotation =  e.rotation
 puts "Created 'encrypted.txt' with the key #{e.stored_key} and date \
 #{e.stored_date}."

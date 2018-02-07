@@ -11,6 +11,5 @@ input_date = ARGV[2]
 writer.write(e.crack(incoming_text, input_date))
 writer.close
 
-# rotation =  e.rotation
-# puts "Created 'cracked.txt' with the cracked key #{e.cracked_key} and date \
-# #{input_date}."
+puts "Created 'cracked.txt' with the cracked key #{e.cracked_key} and date \
+#{input_date}."

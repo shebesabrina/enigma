@@ -2,11 +2,11 @@ require './lib/decryptor'
 require './lib/encryptor'
 require './lib/cracking'
 require 'date'
-require 'pry'
 
 class Enigma
 
   attr_reader :stored_key,
+              :cracked_key,
               :stored_date,
               :rotation,
               :output
@@ -26,10 +26,8 @@ class Enigma
   end
 
   def crack(message = output, date = input_date)
-    # binding.pry
-    result = Cracking.new(message, date)
-    result.generate_key_offset
-    # result.cracked_message
+    @cracked_key = Cracking.new(message, date).get_key
+    result = decrypt(message, key = cracked_key, date)
   end
 
 end
