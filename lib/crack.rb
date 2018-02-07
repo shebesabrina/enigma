@@ -7,8 +7,8 @@ handle.close
 e = Enigma.new
 
 writer = File.open(ARGV[1], "w")
-writer.write(e.encrypt(incoming_text))
+writer.write(e.crack(incoming_text, ARGV[2]))
 writer.close
 
-puts "Created 'encrypted.txt' with the key #{e.stored_key} and date \
-#{e.stored_date}."
+puts "Created 'cracked.txt' with the cracked key #{e.cracked_key} and date \
+#{ARGV[2]}."

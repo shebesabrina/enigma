@@ -21,7 +21,7 @@ class Encryptor
   end
 
   def encrypted_message
-    input_message(message).map do |characters|
+    result = input_message(message).map do |characters|
       encrypt_quad_characters(characters)
     end.flatten.join("")
   end
