@@ -96,4 +96,10 @@ class EnigmaTest < Minitest::Test
     @e.decrypt(my_message, "30218", "12345")
   end
 
+  def test_it_can_crack_a_word
+    my_message = "(b76)c8ayB87"
+
+    assert_equal "Xe.VYf,)aE,W", @e.crack(my_message, 70218)
+  end
+
 end
