@@ -25,7 +25,7 @@ class Enigma
     result.decrypted_message
   end
 
-  def crack(message = output, date =  input_date)
+  def crack(message = output, date = input_date)
     @cracked_key = Cracking.new(message, date).get_key
     decrypt(message, key = cracked_key, date)
   end

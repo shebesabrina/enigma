@@ -8,7 +8,7 @@ class Cracking
 
   def initialize(message, date)
     @message = message
-    @date = date
+    @date = date.to_i
     @key = "9999"
   end
 
