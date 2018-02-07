@@ -27,7 +27,7 @@ class Enigma
 
   def crack(message = output, date = input_date)
     @cracked_key = Cracking.new(message, date).get_key
-    result = decrypt(message, key = cracked_key, date)
+    decrypt(message, key = cracked_key, date)
   end
 
 end
