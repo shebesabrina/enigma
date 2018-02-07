@@ -1,7 +1,6 @@
 require './lib/decryptor.rb'
 require_relative "test_helper.rb"
 
-
 class DecryptorTest < Minitest::Test
 
   def test_if_it_exists
