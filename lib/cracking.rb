@@ -12,11 +12,10 @@ class Cracking
   end
 
   def get_key
-    sample_message = message[-7..-1]
-    check = Decryptor.new(sample_message, @key, date)
-    until check.decrypted_message == "..end.."
+    check = Decryptor.new(message, @key, date)
+    until check.decrypted_message[-7..-1] == "..end.."
       @key = (@key.to_i + 1).to_s
-      check = Decryptor.new(sample_message, @key, date)
+      check = Decryptor.new(message, @key, date)
     end
     @key
   end

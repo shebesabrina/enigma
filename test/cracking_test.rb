@@ -17,15 +17,9 @@ class CrackingTest < Minitest::Test
   end
 
   def test_it_can_get_a_key
-    cracking = Cracking.new("cw^^(b76)c8ayB87", 70218)
+    cracking = Cracking.new("7A$3ICk:ewtue/", 70218)
 
-    assert_equal "17792", cracking.get_key
-  end
-
-  def test_it_can_get_another_key
-    cracking = Cracking.new("(b76)c8ayB87", 70218)
-
-    assert_equal "17792", cracking.get_key
+    assert_equal "19898", cracking.get_key
   end
 
 end
