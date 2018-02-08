@@ -14,10 +14,10 @@ class Encryptor
                   (")"),("["),("]"),("<"),(">"),(";"),(":"),("/"),("?"),
                   ("|"), ('\\')] * 3
     @message = message
-    @rotator = Rotator.new(date, key)
-    @rotation = @rotator.generate_rotation
-    @stored_key = @rotator.key
-    @stored_date = @rotator.date
+    rotator = Rotator.new(date, key)
+    @rotation = rotator.generate_rotation
+    @stored_key = rotator.key
+    @stored_date = rotator.date
   end
 
   def encrypted_message

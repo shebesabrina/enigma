@@ -15,10 +15,10 @@ class Decryptor
                   ("|"), ('\\')] * 3
     @dictionary_decrypt = dictionary.reverse
     @message = message
-    @rotator = Rotator.new(date = date, key = key)
-    @rotation = @rotator.generate_rotation
-    @stored_key = @rotator.key
-    @stored_date = @rotator.date
+    rotator = Rotator.new(date = date, key = key)
+    @rotation = rotator.generate_rotation
+    @stored_key = rotator.key
+    @stored_date = rotator.date
   end
 
   def decrypted_message

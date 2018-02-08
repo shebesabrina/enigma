@@ -97,9 +97,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_crack_a_word
-    my_message = "(b76)c8ayB87"
+    my_message = "!%EFXBlxN.9KLB,FP2EZWY>VjC5KICF"
 
-    assert_equal "Xe.VYf,)aE,W", @e.crack(my_message, 70218)
+    assert_equal "It is Raining like Crazy..end..", @e.crack(my_message, 70218)
   end
 
 end
