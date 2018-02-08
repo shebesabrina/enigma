@@ -8,7 +8,6 @@ class Enigma
   attr_reader :stored_key,
               :cracked_key,
               :stored_date,
-              :rotation,
               :output
 
   def encrypt(message, date = DateTime.now.strftime("%d%m%y").to_i,
@@ -16,7 +15,6 @@ class Enigma
     result = Encryptor.new(message, date, key)
     @stored_key = result.stored_key
     @stored_date = result.stored_date
-    @rotation = result.rotation
     @output = result.encrypted_message
   end
 

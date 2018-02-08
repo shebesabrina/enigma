@@ -3,8 +3,7 @@ require './lib/decryptor'
 class Cracking
 
   attr_reader :message,
-              :date,
-              :key
+              :date
 
   def initialize(message, date)
     @message = message
