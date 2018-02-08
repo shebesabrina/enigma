@@ -56,4 +56,21 @@ class EncryptorTest < Minitest::Test
     encryptor.input_message(my_message)
   end
 
+  def test_it_can_encrypt_quad_characters
+    characters = ["t", "h", "e", " "]
+    encryptor = Encryptor.new("testing", "80218", "88938")
+
+    assert_equal ["D", "q", "o", "t"],
+    encryptor.encrypt_quad_characters(characters)
+  end
+
+  def test_it_can_encrypt_a_message
+    my_message = "the birds can tweet..end.."
+    encryptor = Encryptor.new(my_message, "80218", "88938")
+    encryptor.input_message(my_message)
+
+    assert_equal "DqotlrBTC&mQx&D,onDu(nxT(*",
+    encryptor.encrypted_message
+  end
+
 end
