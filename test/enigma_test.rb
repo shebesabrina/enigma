@@ -55,48 +55,48 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_if_decrypt_method_returns_a_string
-    assert_equal String, @e.decrypt("hello world", "30218", "12345").class
+    assert_equal String, @e.decrypt("rj*Dy#|GBq,/(j)v($", "84465", "80218").class
   end
 
   def test_it_can_decrypt_a_letter
-    my_message = "k..end.."
+    my_message = "qBA(t0AV"
 
-    assert_equal "49O@7bOO", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "k..end..", @e.decrypt(my_message, "84465", "80218")
   end
 
   def test_it_can_decrypt_a_second_letter
-    my_message = "ki..end.."
+    my_message = "cu2D/z;D3"
 
-    assert_equal "4gOOYl!Oy", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "ki..end..", @e.decrypt(my_message, "70747", "80218")
   end
 
   def test_it_can_decrypt_a_four_letter_word
-    my_message = "bell..end.."
+    my_message = "t),z/W5BvWF"
 
-    assert_equal "Vc((y9@[X9O", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "bell..end..", @e.decrypt(my_message, "96510", "80218")
   end
 
   def test_it_can_decrypt_two_words
-    my_message = "bell hop..end.."
+    my_message = "vNt/?Qwa|nm|xn&"
 
-    assert_equal "Vc((xf]<y9@[X9O", @e.decrypt(my_message, "30218", "12345")
+    assert_equal "bell hop..end..", @e.decrypt(my_message, "13066", "80218")
   end
 
   def test_it_can_decrypt_words_with_a_comma
-    my_message = "the answer is, 3..end.."
+    my_message = ":9m<9#AL!&^x;H^^NGmC,G&"
 
-    assert_equal "!f@NUl:\\YpN^, NGy9@[X9O",
-    @e.decrypt(my_message, "30218", "12345")
+    assert_equal "the answer is, 3..end..",
+    @e.decrypt(my_message, "54911", "80218")
   end
 
   def test_it_can_decrypt_many_words_with_comma_period_and_spaces
-     my_message = "the quick brown fox, jumps over the lazy dogs back...end.."
+     my_message = "B)A[ycEpsSxEweJ[n/T<^]Qzxa\\BD&N[B)A[t#VL^^KtASxnk<a]&&Jq&T"
 
-    assert_equal "!f@N s^,48.;8u[NZmaPxh?)9qN]#c;N!f@N5|cbxb]$,8. WiOOyc[!y9",
-    @e.decrypt(my_message, "30218", "12345")
+    assert_equal "the quick brown fox, jumps over the lazy dogs back...end..",
+    @e.decrypt(my_message, "86209", "80218")
   end
 
-  def test_it_can_crack_a_word
+  def test_it_can_crack_multiple_words
     my_message = "!%EFXBlxN.9KLB,FP2EZWY>VjC5KICF"
 
     assert_equal "It is Raining like Crazy..end..", @e.crack(my_message, 70218)
