@@ -24,7 +24,7 @@ class DecryptorTest < Minitest::Test
     assert_equal [["h"]], decryptor.input_message(my_message)
   end
 
-  def test_it_can_take_two_input_letter
+  def test_it_can_take_two_input_letters
     my_message = "he"
     decryptor = Decryptor.new("testing", "88938", "80218")
 
